@@ -1,5 +1,6 @@
 //import '../screens/wallet3.dart';
 import '../config/palette.dart';
+import '../screens/bottom_nav_screen.dart';
 import '../screens/wallet.dart';
 import 'ContentTest.dart';
 import 'intances.dart';
@@ -137,6 +138,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
               onPressed: () {
 
+                if(isSwitched){
+                  //When we have a positif Qr-Code
+                  my_async_post();
+                }
                 if (dropdownValue == 'PCR') {
                   var data = widget.qrCode.content ?? "";
                   if (data == null) {
