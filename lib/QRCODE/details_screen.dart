@@ -1,4 +1,3 @@
-//import '../screens/wallet3.dart';
 import '../config/palette.dart';
 import '../screens/bottom_nav_screen.dart';
 import '../screens/wallet.dart';
@@ -46,10 +45,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 DatePicker.showDatePicker(context,
                     showTitleActions: true,
                     onChanged: (date) {}, onConfirm: (date) {
-                  setState(() {
-                    currentDate = date;
-                  });
-                }, currentTime: DateTime.now(), locale: LocaleType.fr);
+                      setState(() {
+                        currentDate = date;
+                      });
+                    }, currentTime: DateTime.now(), locale: LocaleType.fr);
               },
               child: Text(
                 formatDate(currentDate),
@@ -58,17 +57,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Container(
             child: widget.qrCode.type != 'qrCode'
                 ? Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: ListTile(
-                      leading: Text(widget.qrCode.type.toString()),
-                      title: Text(widget.qrCode.content.toString()),
-                    ),
-                  )
+              padding: const EdgeInsets.all(18.0),
+              child: ListTile(
+                leading: Text(widget.qrCode.type.toString()),
+                title: Text(widget.qrCode.content.toString()),
+              ),
+            )
                 : QrImage(
-                    data: widget.qrCode.content.toString(),
-                    version: QrVersions.auto,
-                    size: 200.0,
-                  ),
+              data: widget.qrCode.content.toString(),
+              version: QrVersions.auto,
+              size: 200.0,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 10.0),
@@ -98,41 +97,41 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
           dropdownValue == 'Autre'
               ? Padding(
-                  padding:
-                      const EdgeInsets.only(left: 30.0, right: 30.0, top: 10.0),
-                  child: TextField(
-                    decoration: InputDecoration(errorText: errorOthers),
-                    controller: otherController,
-                  ),
-                )
+            padding:
+            const EdgeInsets.only(left: 30.0, right: 30.0, top: 10.0),
+            child: TextField(
+              decoration: InputDecoration(errorText: errorOthers),
+              controller: otherController,
+            ),
+          )
               : const SizedBox(
-                  width: 0.0,
-                ),
+            width: 0.0,
+          ),
           dropdownValue == 'PCR'
               ? Padding(
-                  padding:
-                      const EdgeInsets.only(left: 30.0, right: 30.0, top: 10.0),
-                  child: Row(
-                    children: [
-                      const Text("Covid positive"),
-                      Switch(
-                        value: isSwitched,
-                        onChanged: (value) {
-                          print(!isSwitched);
-                          setState(() {
-                            isSwitched = value;
-                          });
+            padding:
+            const EdgeInsets.only(left: 30.0, right: 30.0, top: 10.0),
+            child: Row(
+              children: [
+                const Text("Covid positive"),
+                Switch(
+                  value: isSwitched,
+                  onChanged: (value) {
+                    print(!isSwitched);
+                    setState(() {
+                      isSwitched = value;
+                    });
 
-                        },
-                        activeTrackColor: Colors.lightGreenAccent,
-                        activeColor: Colors.green,
-                      ),
-                    ],
-                  ),
-                )
-              : const SizedBox(
-                  width: 0.0,
+                  },
+                  activeTrackColor: Colors.lightGreenAccent,
+                  activeColor: Colors.green,
                 ),
+              ],
+            ),
+          )
+              : const SizedBox(
+            width: 0.0,
+          ),
 
           ElevatedButton(
 
@@ -142,6 +141,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   //When we have a positif Qr-Code
                   my_async_post();
                 }
+
                 if (dropdownValue == 'PCR') {
                   var data = widget.qrCode.content ?? "";
                   if (data == null) {
@@ -168,9 +168,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 widget.qrCode.pcr = isSwitched;
                 widget.qrCode.date = currentDate;
                 myData.box.put(widget.qrCode);
-                developer.log("=######### 165 ######### =====");
                 print(widget.qrCode);
-                developer.log("=######### 168 ######### =====");
                 widget.callback(widget.qrCode);
                 Navigator.pushReplacement(
                   context,

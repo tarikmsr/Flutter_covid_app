@@ -12,7 +12,7 @@ import 'dart:math';
 import 'dart:developer' as developer;
 import '../objectbox.g.dart';
 
-String serverDNS = 'http://115b-105-155-15-51.ngrok.io';
+String serverDNS = 'http://462d-105-159-3-22.ngrok.io';
 @Entity()
 class DeviceModel {
   int id;
@@ -80,8 +80,8 @@ Future<List<DeviceModel>> readFromObjectBox() async{
   Query<DeviceModel> query = _box.query().build();
   List<DeviceModel> joes = query.find();
   query.close();
-  //developer.log("================>>>>>>>>>><<<<reading form <<<<<<<<<====================");
-  //developer.log("${joes}");
+  developer.log("================>>>>>>>>>><<<<reading form <<<<<<<<<====================");
+  developer.log("${joes}");
   _store.close();
   return joes;
 }

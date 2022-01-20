@@ -12,11 +12,10 @@ class MyData {
     if (box == null) {
       final store = await openStore();
       box = store.box<MyQrCode>();
-      //store.close();
+      store.close();
     }
     qrCodes?.addAll(box.getAll());
     callback(qrCodes);
   }
 
 }
-
