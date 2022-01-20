@@ -1,29 +1,16 @@
-# Flutter Mobile Application pour Tracer le Covid-19
+# Flutter_covid_app
+The objective of this project is the realization of a mobile application (Flutter) that tracks Covid-19. The application must be able to generate certificates (Vaccine Pass, PCR ...) by scanning the Qr-Code. The user's data (certificates and contacts) must be saved in a local database. If a person is declared ill with COVID, the list of contacts is sent to the API in order to notify these contacts (using push notification FCM). The development of the mobile part using Flutter, with the local database (NoSQL) managed with Object-Box. The development of the API with Laravel.
 
+## Application Screen Shots
+### Main Page
+![image](https://user-images.githubusercontent.com/65272079/150439580-f27a6fb6-b2bc-458a-9916-18931b2dd3fd.png)
 
-# Application Screen Shots
+### Statistics Page
+![image](https://user-images.githubusercontent.com/65272079/150439690-e1bfa522-9785-418f-ae76-10b70c746e59.png)
 
+### Scanned tests / Certificate Page
+![image](https://user-images.githubusercontent.com/65272079/150439718-eb25fe6c-5afe-4083-9ec7-7bee4c73452c.png)
 
-La page d’accueil
+![image](https://user-images.githubusercontent.com/65272079/150439822-06fe3599-8c22-4833-b0d8-61269673f1b2.png)
 
-
-![1](https://user-images.githubusercontent.com/64175026/150437434-f3fc465a-7d62-4221-9a08-aebccee5a0f2.jpg)
-
-
-
-La page des statistiques
-
-
-![3](https://user-images.githubusercontent.com/64175026/150437548-e5dd4f79-92d6-4478-b244-221f9eff204e.jpg)
-
-
-La page des certificats et les tests scannés par
-l’application :
-
-
-![5](https://user-images.githubusercontent.com/64175026/150438286-625f8a6e-bc10-46b8-b9fa-f8444fd73fd6.jpg)
-
-
-![image](https://user-images.githubusercontent.com/64175026/150438333-4e81fb9c-2e7c-49de-816f-b20b337df40f.png)
-
-
+![image](https://user-images.githubusercontent.com/65272079/150439826-9b9984a0-160a-4ea7-8304-0300bd26ce28.png)
