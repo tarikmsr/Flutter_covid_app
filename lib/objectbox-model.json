@@ -1,0 +1,76 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:757902020571214150",
+      "lastPropertyId": "3:8363002156549262118",
+      "name": "DeviceModel",
+      "properties": [
+        {
+          "id": "1:4372525575203765359",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4111455153584405992",
+          "name": "deviceId",
+          "type": 9
+        },
+        {
+          "id": "3:8363002156549262118",
+          "name": "date",
+          "type": 10
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:1085732696181235582",
+      "lastPropertyId": "5:3339805549975111916",
+      "name": "MyQrCode",
+      "properties": [
+        {
+          "id": "1:6583801831626737087",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6429140376657282869",
+          "name": "content",
+          "type": 9
+        },
+        {
+          "id": "3:8733792900545834474",
+          "name": "type",
+          "type": 9
+        },
+        {
+          "id": "4:786079613745695897",
+          "name": "pcr",
+          "type": 1
+        },
+        {
+          "id": "5:3339805549975111916",
+          "name": "date",
+          "type": 10
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:1085732696181235582",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
