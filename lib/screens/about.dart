@@ -19,6 +19,9 @@ class _AboutScreenState extends State<AboutScreen> {
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
+          // _body(),
+
+
 
 
 
@@ -45,7 +48,6 @@ class _AboutScreenState extends State<AboutScreen> {
       ),
     );
   }
-
 
 
 }
