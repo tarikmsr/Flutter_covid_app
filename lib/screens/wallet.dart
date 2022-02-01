@@ -23,6 +23,7 @@ class _WalletScreenState extends State<WalletScreen>  {
   @override
   void initState() {
     super.initState();
+
     myData.initDb(callbackList);
   }
 
@@ -104,97 +105,3 @@ class _WalletScreenState extends State<WalletScreen>  {
     );
   }
 }
-
-
-
-
-
-
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   myData.initDb(callbackList);
-  // }
-  //
-  // void _addQrCode() {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => QrCodeScreen(callback: callback)),
-  //   );
-  // }
-  //
-  // void callback(MyQrCode qrCode) {
-  //   setState(() {
-  //     myData.qrCodes?.add(qrCode);
-  //   });
-  // }
-  //
-  // void callbackList(List<MyQrCode> qrCodes) {
-  //   setState(() {
-  //     myData.qrCodes = qrCodes;
-  //   });
-  // }
-
-  //
-  // static const IconData qr_code_scanner_rounded =
-  // IconData(0xf00cc, fontFamily: 'MaterialIcons');
-
-
-
-//
-// SliverPadding _buildContentBar() {
-//
-//
-//     return SliverPadding(
-//       padding: const EdgeInsets.all(20.0),
-//       sliver: SliverToBoxAdapter(
-//
-//
-//           child: myData.qrCodes != null
-//               ? ListView.builder(
-//               itemCount: myData.qrCodes?.length,
-//               itemBuilder: (BuildContext context, int index) {
-//                 return GestureDetector(
-//                   onTap: () {
-//
-//                     if(myData.qrCodes![index].type.toString() == 'PCR'){
-//                       print("====test Result ==== ");
-//                       print(checkPCRresult(myData.qrCodes![index].content.toString()));
-//                     }
-//                     if(myData.qrCodes![index].type.toString() == 'Pass Covid'){
-//                       getPassData(myData.qrCodes![index].content.toString());
-//                     }
-//                     print("====156=====");
-//
-//
-//
-//                     Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                         builder: (context) => DetailsDisplayScreen(
-//                           callBack: callbackList,
-//                           qrCode: myData.qrCodes![index],
-//                         ),
-//                       ),
-//                     );
-//                   },
-//                   child: ListTile(
-//                     leading: QrImage(
-//                       data: myData.qrCodes![index].content.toString(),
-//                       version: QrVersions.auto,
-//                       size: 50.0,
-//                     ),
-//                     title: Text(myData.qrCodes![index].type.toString()),
-//                     subtitle: Text(formatDate(myData.qrCodes![index].date)),
-//                   ),
-//                 );
-//               })
-//               : const CircularProgressIndicator(),
-//
-//
-//       ),
-//
-//   );
-//   }
-//

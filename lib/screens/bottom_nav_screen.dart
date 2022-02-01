@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_covid_dashboard_ui/QRCODE/data.dart';
+import 'package:flutter_covid_dashboard_ui/QRCODE/intances.dart';
 import 'package:flutter_covid_dashboard_ui/screens/screens.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:objectbox/objectbox.dart';
@@ -12,7 +14,7 @@ import 'dart:math';
 import 'dart:developer' as developer;
 import '../objectbox.g.dart';
 
-String serverDNS = 'http://462d-105-159-3-22.ngrok.io';
+String serverDNS = 'http://6d4a-41-248-40-99.ngrok.io';
 @Entity()
 class DeviceModel {
   int id;
@@ -74,16 +76,31 @@ void my_async_post() async{
 
 
 Future<List<DeviceModel>> readFromObjectBox() async{
-  final Store _store = await openStore();
-  var _box = null;
-  _box = _store.box<DeviceModel>();
-  Query<DeviceModel> query = _box.query().build();
-  List<DeviceModel> joes = query.find();
-  query.close();
-  developer.log("================>>>>>>>>>><<<<reading form <<<<<<<<<====================");
-  developer.log("${joes}");
-  _store.close();
-  return joes;
+  try{
+    final Store _store = await openStore();
+    var _box = null;
+    _box = _store.box<DeviceModel>();
+    Query<DeviceModel> query = _box.query().build();
+    List<DeviceModel> joes = query.find();
+    query.close();
+    developer.log("================>>>>>>>>>><<<<reading form <<<<<<<<<====================");
+    developer.log("${joes}");
+    _store.close();
+    return joes;
+  }catch(e){
+    myData.store.close();
+    final Store _store = await openStore();
+    var _box = null;
+    _box = _store.box<DeviceModel>();
+    Query<DeviceModel> query = _box.query().build();
+    List<DeviceModel> joes = query.find();
+    query.close();
+    developer.log("================>>>>>>>>>><<<<reading form <<<<<<<<<====================");
+    developer.log("${joes}");
+    _store.close();
+    return joes;
+  }
+
 }
 
 
@@ -135,19 +152,6 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     _store.close();
   }
 
-  // Future<List<DeviceModel>> readFromObjectBox() async{
-  //   final Store _store = await openStore();
-  //   var _box = null;
-  //   _box = _store.box<DeviceModel>();
-  //   Query<DeviceModel> query = _box.query().build();
-  //   List<DeviceModel> joes = query.find();
-  //   query.close();
-  //   //developer.log("================>>>>>>>>>><<<<<<<<<<<<x<<<<<<<<<====================");
-  //   //developer.log("${joes}");
-  //   _store.close();
-  //   return joes;
-  // }
-
   void allDevices(){
     readFromObjectBox();
     devices.forEach((element) {
@@ -174,7 +178,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   }
 
   void init_browser(bool flag) async {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(Duration(seconds:1), (timer) {
       if(c){
         allDevices();
       }
@@ -241,15 +245,6 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           developer.log("We v recieved : ${jsonEncode(data)}");
         });
   }
-
-  // void my_async_post() async{
-  //   List<DeviceModel> mylist =  await readFromObjectBox();
-  //   developer.log('my_async_post   -=-==-= ${mylist}');
-  //   var res = serverPost(
-  //       mylist
-  //   );
-  // }
-
 
   final List _screens = [
     HomeScreen(),

@@ -9,6 +9,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'dart:developer' as developer;
 
+
 // import 'package:db_qr_code/main.dart'; //for check
 
 
@@ -139,17 +140,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
                 if(isSwitched){
                   //When we have a positif Qr-Code
-                  my_async_post();
-                }
-
-                if (dropdownValue == 'PCR') {
-                  var data = widget.qrCode.content ?? "";
-                  if (data == null) {
-                    print("content vide");
-                  } else {
-                    //print(checkPCRresult(data));
-                    print(widget.qrCode.pcr);
-                  }
+                   my_async_post();
                 }
 
                 if (dropdownValue == 'Autre') {
@@ -167,8 +158,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 }
                 widget.qrCode.pcr = isSwitched;
                 widget.qrCode.date = currentDate;
-                myData.box.put(widget.qrCode);
-                print(widget.qrCode);
+                try{
+                  myData.box.put(widget.qrCode);
+                  myData.store.close();
+                }catch(e){
+                  print(e);
+                }
                 widget.callback(widget.qrCode);
                 Navigator.pushReplacement(
                   context,

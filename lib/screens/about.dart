@@ -1,9 +1,7 @@
-import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_covid_dashboard_ui/config/palette.dart';
-import 'package:flutter_covid_dashboard_ui/config/styles.dart';
-import 'package:flutter_covid_dashboard_ui/data/data.dart';
 import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
+import 'package:flutter/cupertino.dart';
 
 class AboutScreen extends StatefulWidget {
   @override
@@ -21,6 +19,8 @@ class _AboutScreenState extends State<AboutScreen> {
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
+
+
 
 
         ],
@@ -45,5 +45,7 @@ class _AboutScreenState extends State<AboutScreen> {
       ),
     );
   }
+
+
 
 }
