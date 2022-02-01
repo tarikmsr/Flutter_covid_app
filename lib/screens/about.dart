@@ -21,6 +21,9 @@ class _AboutScreenState extends State<AboutScreen> {
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
+          // _body(),
+
+
 
 
         ],
@@ -45,5 +48,75 @@ class _AboutScreenState extends State<AboutScreen> {
       ),
     );
   }
+
+  //
+  // SliverPadding _body(){
+
+    //   return CupertinoPageScaffold(
+    //     navigationBar: const CupertinoNavigationBar(
+    //       middle: Text('Paramètre',style:TextStyle(color: Colors.white)),
+    //       backgroundColor: Colors.blue,
+    //
+    //     ),
+    //     child: CupertinoSettings(
+    //       items: <Widget>[
+    //         const CSHeader('Luminosité'),
+    //         CSWidget(
+    //           CupertinoSlider(
+    //             value: _slider,
+    //             onChanged: (double value) => setState(() => _slider = value),
+    //           ),
+    //           style: CSWidgetStyle(
+    //             icon: Icon(FontAwesomeIcons.sun),
+    //           ),
+    //           addPaddingToBorder: true,
+    //         ),
+    //         CSControl(
+    //           nameWidget: Text('Auto Luminosité'),
+    //           contentWidget: CupertinoSwitch(
+    //             value: _switch,
+    //             onChanged: (bool value) => setState(() => _switch = value),
+    //           ),
+    //           style: CSWidgetStyle(
+    //             icon: Icon(FontAwesomeIcons.sun),
+    //           ),
+    //           addPaddingToBorder: false,
+    //         ),
+    //         const CSHeader('Selection'),
+    //         CSSelection<int>(
+    //           items: const <CSSelectionItem<int>>[
+    //             CSSelectionItem<int>(text: 'Day mode', value: 0),
+    //             CSSelectionItem<int>(text: 'Night mode', value: 1, subtitle: 'Subtitle'),
+    //           ],
+    //           onSelected: (value) => setState(() => _index = value),
+    //           currentSelection: _index,
+    //         ),
+    //         const CSHeader('les langues'),
+    //         CSSelection<int>(
+    //           items: const <CSSelectionItem<int>>[
+    //             CSSelectionItem<int>(text: 'Français', value: 0),
+    //             CSSelectionItem<int>(text: 'English', value: 1),
+    //             CSSelectionItem<int>(text: 'العربية', value: 2),
+    //           ],
+    //           onSelected: (value) => setState(() => _index = value),
+    //           currentSelection: _index,
+    //         ),
+    //         const CSDescription(
+    //           'choisir la langue qui vous voulez !',
+    //         ),
+    //         const CSHeader(""),
+    //
+    //
+    //       ],
+    //     ),
+    //   );
+    //
+    //
+    // }
+
+
+
+
+
 
 }
