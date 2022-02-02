@@ -47,8 +47,6 @@ class _StatsScreenState extends State<StatsScreen> {
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
-          _buildRegionTabBar(),
-          _buildStatsTabBar(),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             sliver: SliverToBoxAdapter(
@@ -103,10 +101,8 @@ class _StatsScreenState extends State<StatsScreen> {
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('My Country'),
-              Text('Global'),
+              Text('My Countryy'),
             ],
-            onTap: (index) {},
           ),
         ),
       ),

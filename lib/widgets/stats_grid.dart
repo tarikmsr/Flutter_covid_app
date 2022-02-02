@@ -24,20 +24,27 @@ class StatsGrid extends StatelessWidget {
               } else if (data.hasData) {
                 var items = data.data as List<Country>;
                       return Card(
-                        child: Container(
-                          padding: EdgeInsets.all(8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              _buildStatCard('Total hihi', items[items.length-1].Confirmed.toString(), Colors.orange),
-                              _buildStatCard('Active Cases', items[items.length-1].Active.toString(), Colors.red),
-
-                            ],
-                          ),
+                        child: Column(
+                          children: <Widget>[
+                            Flexible(
+                              child: Row(
+                                children: <Widget>[
+                                  _buildStatCard('Total Cases', items[items.length-1].Confirmed.toString(), Colors.orange),
+                                  _buildStatCard('Total Deaths', items[items.length-1].Deaths.toString(), Colors.red),
+                                ],
+                              ),
+                            ),
+                            Flexible(
+                              child: Row(
+                                children: <Widget>[
+                                  _buildStatCard('Active', items[items.length-1].Active.toString(), Colors.lightBlue),
+                                  _buildStatCard('Deaths', '35', Colors.green),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       );
-                   
               } else {
                 // show ci  rcular progress while data is getting fetched from json file
                 return Center(
