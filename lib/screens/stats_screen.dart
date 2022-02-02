@@ -1,5 +1,7 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:flutter_covid_dashboard_ui/config/palette.dart';
 import 'package:flutter_covid_dashboard_ui/config/styles.dart';
 import 'package:flutter_covid_dashboard_ui/data/data.dart';
@@ -10,7 +12,32 @@ class StatsScreen extends StatefulWidget {
   _StatsScreenState createState() => _StatsScreenState();
 }
 
+
+class Country{
+  final int Confirmed;
+  final int Deaths;
+  final int Active;
+
+  Country(this.Confirmed, this.Deaths, this.Active);
+  factory Country.fromJson(Map<String, dynamic> json){
+    return Country(
+      json["Confirmed"],
+      json["Deaths"],
+      json["Active"],
+    );
+  }
+}
+
 class _StatsScreenState extends State<StatsScreen> {
+
+  Future<List<Country>> getCountry() async{
+    final data = await http.get(Uri.https('api.covid19api.com', 'total/dayone/country/morocco'));
+    List<Country> summaryList = (json.decode(data.body) as List).map((item) => new Country.fromJson(item)).toList();
+    return summaryList;
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
