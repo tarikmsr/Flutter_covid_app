@@ -21,6 +21,7 @@ class DeviceModel {
   String? deviceId;
   @Property(type: PropertyType.date)
   DateTime date = DateTime.now();
+
   @override
   String toString() {
     return '''{"deviceId": "$deviceId", "date": "$date"}''';
@@ -78,7 +79,7 @@ void my_async_post() async{
 Future<List<DeviceModel>> readFromObjectBox() async{
   try{
     final Store _store = await openStore();
-    var _box = null;
+    var _box;
     _box = _store.box<DeviceModel>();
     Query<DeviceModel> query = _box.query().build();
     List<DeviceModel> joes = query.find();
@@ -107,6 +108,7 @@ Future<List<DeviceModel>> readFromObjectBox() async{
 
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
+
   List<Device> devices = [];
   List<Device> connectedDevices = [];
   late NearbyService nearbyService;
