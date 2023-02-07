@@ -1,6 +1,9 @@
 # Flutter_covid_app
 The objective of this project is the realization of a mobile application (Flutter) that tracks Covid-19. The application must be able to generate certificates (Vaccine Pass, PCR ...) by scanning the Qr-Code. The user's data (certificates and contacts) must be saved in a local database. If a person is declared ill with COVID, the list of contacts is sent to the API in order to notify these contacts (using push notification FCM). The development of the mobile part using Flutter, with the local database (NoSQL) managed with Object-Box. The development of the API with Laravel.
 
+Technologies: Flutter / Laravel / Object-Box / QR code reader / BLE (Bluetooth Low Energy) / Github.
+
+
 # Application Screen Shots
 ## Main Page
 <p align="middle">
